@@ -4,16 +4,18 @@
   <title>Museo Comunitario Incluyente Shan-Dany Santa Ana Del Valle</title>
   <style>
     body {
-      background-color: black;
-      color: white;
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
     }
     
     header {
+      background-color: black;
+      color: white;
       padding: 20px;
-      text-align: right;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
     
     h1 {
@@ -21,15 +23,13 @@
     }
     
     .button {
-      background-color: white;
-      color: black;
+      background-color: #0066ff;
+      color: white;
       border: none;
       padding: 10px 20px;
       text-align: center;
       text-decoration: none;
-      display: inline-block;
       font-size: 16px;
-      margin-top: 10px;
       cursor: pointer;
     }
     
@@ -131,20 +131,15 @@
     </div>
   </section>
   
-  <section class="section">
+  <section class="section contact-form">
     <h2>Formulario de Contacto de Museo Comunitario Incluyente Shan-Dany Santa Ana Del Valle</h2>
-    <div class="contact-form">
-      <label for="name">Nombre:</label>
-      <input type="text" id="name" name="name">
-      
-      <label for="email">Correo:</label>
-      <input type="email" id="email" name="email">
-      
-      <label for="message">Mensaje:</label>
-      <textarea id="message" name="message"></textarea>
-      
+    <p>Comunícate con nosotros a través del formulario de contacto de Museo Comunitario Incluyente Shan-Dany Santa Ana Del Valle para cualquier pregunta o solicitud de información.</p>
+    <form>
+      <input type="text" placeholder="Nombre">
+      <input type="text" placeholder="Correo electrónico">
+      <textarea placeholder="Mensaje"></textarea>
       <button class="button" type="submit">Enviar</button>
-    </div>
+    </form>
   </section>
   
   <section class="section">
