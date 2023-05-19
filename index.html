@@ -4,16 +4,18 @@
   <title>Museo Comunitario Incluyente Shan-Dany Santa Ana Del Valle</title>
   <style>
     body {
-      background-color: black;
-      color: white;
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
     }
     
     header {
+      background-color: black;
+      color: white;
       padding: 20px;
-      text-align: right;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
     
     h1 {
@@ -21,15 +23,13 @@
     }
     
     .button {
-      background-color: white;
-      color: black;
+      background-color: #0066ff;
+      color: white;
       border: none;
       padding: 10px 20px;
       text-align: center;
       text-decoration: none;
-      display: inline-block;
       font-size: 16px;
-      margin-top: 10px;
       cursor: pointer;
     }
     
@@ -45,55 +45,42 @@
       margin-bottom: 20px;
     }
     
-    .section .button {
-      background-color: #0066ff;
-      color: white;
-      margin-top: 20px;
-    }
-    
     .gallery {
       display: flex;
-      overflow-x: auto;
+      flex-wrap: wrap;
+      justify-content: space-between;
     }
     
     .gallery img {
-      width: 300px;
-      height: auto;
-      margin-right: 10px;
+      width: 30%;
+      margin-bottom: 20px;
     }
     
-    .map-container {
-      position: relative;
-    }
-    
-    .map-container iframe {
+    #map {
       width: 100%;
       height: 400px;
     }
     
-    .map-container .map-text {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      background-color: rgba(0, 0, 0, 0.6);
-      padding: 10px;
-      font-size: 16px;
+    #location-text {
+      margin-bottom: 20px;
     }
     
-    .contact-form {
-      display: flex;
-      flex-direction: column;
-    }
-    
-    .contact-form label {
-      margin-bottom: 5px;
-    }
-    
-    .contact-form input,
+    .contact-form input[type="text"],
     .contact-form textarea {
+      width: 100%;
+      padding: 10px;
       margin-bottom: 10px;
-      padding: 5px;
+    }
+    
+    .contact-form .button {
+      background-color: #0066ff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
       font-size: 16px;
+      cursor: pointer;
     }
   </style>
 </head>
@@ -107,8 +94,6 @@
     <h2>Explorar la Cultura: Museo Comunitario Incluyente Shan-Dany Santa Ana Del Valle</h2>
     <p>Museo Comunitario Incluyente Shan-Dany Santa Ana Del Valle es una experiencia única para explorar la cultura local de la región. Ofrecemos una variedad de exposiciones y eventos educativos para ayudar a todos los visitantes a comprender y disfrutar la cultura del lugar. Ven y descubre la rica historia y tradiciones de la región de Santa Ana Del Valle.</p>
     <a class="button" href="https://drive.google.com/file/d/1DDX7PwFhnWITttZrjlb5b4_WL0C_oWkr/view?usp=sharing">Escuchar recorrido</a>
-  </section>
-  
   <section class="section">
     <h2>Galería de Esculturas</h2>
     <div class="gallery">
@@ -127,32 +112,39 @@
   
   <section class="section">
     <h2>Nuestra Ubicación</h2>
-    <div class="map-container">
-      <div class="map-text">NUESTRA UBICACIÓN</div>
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9331.186064867366!2d-96.6483121660624!3d16.8663053151221!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85c703b89c444bcb%3A0x7c2a2cda84cfc548!2sC.%20Pino%20Suarez%201%2C%20Tercera%20Secc%2C%2070400%20Santa%20Ana%20del%20Valle%2C%20Oax.!5e0!3m2!1sen!2smx!4v1626215139581!5m2!1sen!2smx" frameborder="0" allowfullscreen></iframe>
-    </div>
+    <p id="location-text">C. Pino Suarez 1, Tercera Secc, 70400 Santa Ana del Valle, Oax.</p>
+    <div id="map"></div>
+    <script>
+      function initMap() {
+        var location = {lat: 16.804, lng: -96.981}; // Coordenadas del mapa
+        var map = new google.maps.Map(document.getElementById("map"), {
+          center: location,
+          zoom: 15
+        });
+        var marker = new google.maps.Marker({
+          position: location,
+          map: map
+        });
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=TU_API_KEY&callback=initMap" async defer></script>
   </section>
   
-  <section class="section">
+  <section class="section contact-form">
     <h2>Formulario de Contacto de Museo Comunitario Incluyente Shan-Dany Santa Ana Del Valle</h2>
-    <div class="contact-form">
-      <label for="name">Nombre:</label>
-      <input type="text" id="name" name="name">
-      
-      <label for="email">Correo:</label>
-      <input type="email" id="email" name="email">
-      
-      <label for="message">Mensaje:</label>
-      <textarea id="message" name="message"></textarea>
-      
+    <p>Comunícate con nosotros a través del formulario de contacto de Museo Comunitario Incluyente Shan-Dany Santa Ana Del Valle para cualquier pregunta o solicitud de información.</p>
+    <form>
+      <input type="text" placeholder="Nombre">
+      <input type="text" placeholder="Correo electrónico">
+      <textarea placeholder="Mensaje"></textarea>
       <button class="button" type="submit">Enviar</button>
-    </div>
+    </form>
   </section>
   
   <section class="section">
     <h2>Museo Comunitario Incluyente Shan-Dany Santa Ana Del Valle</h2>
     <p>Nuestro Museo Comunitario Incluyente Shan-Dany Santa Ana Del Valle ofrece una experiencia única de aprendizaje e interactiva entre la comunidad. Nuestro Museo es un lugar para contar historias, compartir conocimientos y aprender sobre nuestra cultura. El museo cuenta con una variedad de exposiciones que incluyen arte, música, literatura, ciencia y tecnología. Estamos comprometidos a la inclusión y la diversidad, así como la promoción de la creatividad y el pensamiento crítico, y a prestar un servicio integral a la comunidad. Nuestro Museo ofrece programas para todas las edades, tanto para adultos como para niños y personas con capacidades diferentes.</p>
-    <a class="button" href="https://drive.google.com/file/d/1u1AV-lCQnCi9WgHD4J84g3NKpYD6SNNA/view?usp=sharing">VISITA NUESTRO RECORRIDO VIRTUAL</a>
+    <a class="button" href="https://drive.google.com/file/d/1u1AV-lCQnCi9WgHD4J84g3NKpYD6SNNA/view?usp=sharing">Visita nuestro recorrido virtual</a>
   </section>
 </body>
 </html>
