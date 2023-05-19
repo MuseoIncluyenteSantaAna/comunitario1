@@ -103,19 +103,30 @@
     </div>
   </section>
   
-  <section class="section">
-    <h2>Visitar el Museo Comunitario Incluyente Shan-Dany</h2>
-    <p>Visitar el Museo Comunitario Incluyente Shan-Dany en Santa Ana Del Valle en México es una experiencia única. La exhibición se enfoca en la cultura local y la historia de la comunidad. Los guías son muy amables y serviciales, se siente un ambiente muy cómodo durante toda la visita. Se recomienda altamente para cualquier persona interesada en aprender más sobre la cultura mexicana.</p>
-  </section>
-  
 <section class="section">
     <h2>Nuestra Ubicación</h2>
     <div class="map-container">
       <div class="map-text">NUESTRA UBICACIÓN</div>
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9331.186064867366!2d-96.6483121660624!3d16.8663053151221!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85c703b89c444bcb%3A0x7c2a2cda84cfc548!2sC.%20Pino%20Suarez%201%2C%20Tercera%20Secc%2C%2070400%20Santa%20Ana%20del%20Valle%2C%20Oax.!5e0!3m2!1sen!2smx!4v1626215139581!5m2!1sen!2smx" frameborder="0" allowfullscreen></iframe>
-    </div>
+      <iframe src="" frameborder="0" allowfullscreen></iframe>
+  <section class="section">
+    <h2>Nuestra Ubicación</h2>
+    <p id="location-text">C. Pino Suarez 1, Tercera Secc, 70400 Santa Ana del Valle, Oax.</p>
+    <div id="map"></div>
+    <script>
+      function initMap() {
+        var location = {lat: 16.804, lng: -96.981}; // Coordenadas del mapa
+        var map = new google.maps.Map(document.getElementById("map"), {
+          center: location,
+          zoom: 10
+        });
+        var marker = new google.maps.Marker({
+          position: location,
+          map: map
+        });
+      }
+    </script>
+    <script src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9331.186064867366!2d-96.6483121660624!3d16.8663053151221!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85c703b89c444bcb%3A0x7c2a2cda84cfc548!2sC.%20Pino%20Suarez%201%2C%20Tercera%20Secc%2C%2070400%20Santa%20Ana%20del%20Valle%2C%20Oax.!5e0!3m2!1sen!2smx!4v1626215139581!5m2!1sen!2smx" async defer></script>
   </section>
-
   
   <section class="section contact-form">
     <h2>Formulario de Contacto de Museo Comunitario Incluyente Shan-Dany Santa Ana Del Valle</h2>
