@@ -205,10 +205,9 @@
     <p>Es una experiencia única para explorar la cultura local de la región. Ofrecemos una variedad de exposiciones y eventos educativos para ayudar a todos los visitantes a comprender y disfrutar la cultura del lugar. Ven y descubre la rica historia y tradiciones de la región de Santa Ana Del Valle.</p>
     
     <h3>Selecciona la lengua en que deseas escuchar el recorrido:</h3>
-      <button class="button">Español</button>
-      <button class="button">Inglés</button>
-      <button class="button">Zapoteco</button>
-
+      <button class="button" onclick="playAudio('espanol')">Español</button>
+      <button class="button" onclick="playAudio('ingles')">Inglés</button>
+      <button class="button" onclick="playAudio('zapoteco')">Zapoteco</button>
   </section>
   
   <section class="section">
@@ -260,8 +259,23 @@
   <footer>
     <p>&copy; 2023 Museo Comunitario Shan-Dany Santa Ana Del Valle | Todos los derechos reservados</p>
   </footer>
+  
+  <script>
+    function playAudio(language) {
+      var audio = new Audio();
+      if (language === 'espanol') {
+        audio.src = 'audio_espanol.mp3';
+      } else if (language === 'ingles') {
+        audio.src = 'audio_ingles.mp3';
+      } else if (language === 'zapoteco') {
+        audio.src = 'audio_zapoteco.mp3';
+      }
+      audio.play();
+    }
+  </script>
 </body>
 </html>
+
 
 
 
