@@ -223,49 +223,49 @@
     }
   </style>
   <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const gallery = document.querySelector(".gallery");
-      const images = gallery.querySelectorAll("img");
-      const prevArrow = document.createElement("div");
-      const nextArrow = document.createElement("div");
-      prevArrow.classList.add("arrow", "left");
-      nextArrow.classList.add("arrow", "right");
-      prevArrow.textContent = "<";
-      nextArrow.textContent = ">";
-      gallery.parentElement.insertBefore(prevArrow, gallery);
-      gallery.parentElement.insertBefore(nextArrow, gallery.nextSibling);
+document.addEventListener("DOMContentLoaded", function() {
+  const gallery = document.querySelector(".gallery");
+  const images = gallery.querySelectorAll("img");
+  const prevArrow = document.createElement("div");
+  const nextArrow = document.createElement("div");
+  prevArrow.classList.add("arrow", "left");
+  nextArrow.classList.add("arrow", "right");
+  prevArrow.innerHTML = "&lt;";
+  nextArrow.innerHTML = "&gt;";
+  gallery.parentElement.insertBefore(prevArrow, gallery);
+  gallery.parentElement.insertBefore(nextArrow, gallery.nextSibling);
 
-      let currentImage = 0;
-      const totalImages = images.length;
-      const bulletsContainer = document.querySelector(".image-bullets");
+  let currentImage = 0;
+  const totalImages = images.length;
+  const bulletsContainer = document.querySelector(".image-bullets");
 
-      function showImage(index) {
-        if (index < 0 || index >= totalImages) return;
-        images[currentImage].style.display = "none";
-        images[index].style.display = "block";
-        bulletsContainer.children[currentImage].classList.remove("active");
-        bulletsContainer.children[index].classList.add("active");
-        currentImage = index;
-      }
+  function showImage(index) {
+    if (index < 0 || index >= totalImages) return;
+    images[currentImage].style.display = "none";
+    images[index].style.display = "block";
+    bulletsContainer.children[currentImage].classList.remove("active");
+    bulletsContainer.children[index].classList.add("active");
+    currentImage = index;
+  }
 
-      prevArrow.addEventListener("click", function() {
-        showImage(currentImage - 1);
-      });
+  prevArrow.addEventListener("click", function() {
+    showImage(currentImage - 1);
+  });
 
-      nextArrow.addEventListener("click", function() {
-        showImage(currentImage + 1);
-      });
+  nextArrow.addEventListener("click", function() {
+    showImage(currentImage + 1);
+  });
 
-      for (let i = 0; i < totalImages; i++) {
-        const bullet = document.createElement("span");
-        bullet.classList.add("bullet");
-        if (i === currentImage) bullet.classList.add("active");
-        bulletsContainer.appendChild(bullet);
-        bullet.addEventListener("click", function() {
-          showImage(i);
-        });
-      }
+  for (let i = 0; i < totalImages; i++) {
+    const bullet = document.createElement("span");
+    bullet.classList.add("bullet");
+    if (i === currentImage) bullet.classList.add("active");
+    bulletsContainer.appendChild(bullet);
+    bullet.addEventListener("click", function() {
+      showImage(i);
     });
+  }
+});
   </script>
 </head>
 <body>
