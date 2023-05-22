@@ -199,15 +199,16 @@
     <a class="button" href="mailto:museosantaana1@gmail.com">Contáctanos</a>
   </header>
   
-  <section class="section">
+<section class="section">
     <h2>Explorar la Cultura</h2>
     <h2>Museo Comunitario Shan-Dany de Santa Ana Del Valle</h2>
     <p>Es una experiencia única para explorar la cultura local de la región. Ofrecemos una variedad de exposiciones y eventos educativos para ayudar a todos los visitantes a comprender y disfrutar la cultura del lugar. Ven y descubre la rica historia y tradiciones de la región de Santa Ana Del Valle.</p>
     
     <h3>Selecciona la lengua en que deseas escuchar el recorrido:</h3>
-      <button class="button" onclick="playAudio('espanol')">Español</button>
-      <button class="button" onclick="playAudio('ingles')">Inglés</button>
-      <button class="button" onclick="playAudio('zapoteco')">Zapoteco</button>
+    <button class="button" onclick="playAudio('espanol')">Español</button>
+    <button class="button" onclick="playAudio('ingles')">Inglés</button>
+    <button class="button" onclick="playAudio('zapoteco')">Zapoteco</button>
+    <button class="button" onclick="pauseAudio()">Pausa</button>
   </section>
   
   <section class="section">
@@ -260,8 +261,14 @@
     <p>&copy; 2023 Museo Comunitario Shan-Dany Santa Ana Del Valle | Todos los derechos reservados</p>
   </footer>
   
-  <script>
+<script>
+    var currentAudio;
+
     function playAudio(language) {
+      if (currentAudio) {
+        currentAudio.pause();
+      }
+
       var audio = new Audio();
       if (language === 'espanol') {
         audio.src = 'audio_espanol.mp3';
@@ -271,6 +278,13 @@
         audio.src = 'audio_zapoteco.mp3';
       }
       audio.play();
+      currentAudio = audio;
+    }
+
+    function pauseAudio() {
+      if (currentAudio) {
+        currentAudio.pause();
+      }
     }
   </script>
 </body>
