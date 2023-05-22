@@ -91,8 +91,9 @@
     }
     
     .gallery {
+      position: relative;
       display: flex;
-      overflow-x: auto;
+      overflow-x: hidden;
       margin-bottom: 30px;
     }
     
@@ -102,6 +103,53 @@
       margin-right: 10px;
       border-radius: 10px;
       box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    }
+    
+    .gallery .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 40px;
+      height: 40px;
+      background-color: rgba(0, 0, 0, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: white;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    
+    .gallery .arrow:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+    
+    .gallery .arrow.left {
+      left: 10px;
+    }
+    
+    .gallery .arrow.right {
+      right: 10px;
+    }
+    
+    .image-bullets {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    
+    .bullet {
+      width: 10px;
+      height: 10px;
+      background-color: #bbbbbb;
+      border-radius: 50%;
+      margin: 0 5px;
+    }
+    
+    .bullet.active {
+      background-color: #555555;
     }
     
     .map-container {
@@ -167,24 +215,6 @@
       background-color: #777777;
     }
     
-    .image-bullets {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 20px;
-    }
-    
-    .bullet {
-      width: 10px;
-      height: 10px;
-      background-color: #bbbbbb;
-      border-radius: 50%;
-      margin: 0 5px;
-    }
-    
-    .bullet.active {
-      background-color: #555555;
-    }
-    
     footer {
       background-color: #333333;
       color: white;
@@ -192,6 +222,51 @@
       text-align: center;
     }
   </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const gallery = document.querySelector(".gallery");
+      const images = gallery.querySelectorAll("img");
+      const prevArrow = document.createElement("div");
+      const nextArrow = document.createElement("div");
+      prevArrow.classList.add("arrow", "left");
+      nextArrow.classList.add("arrow", "right");
+      prevArrow.textContent = "<";
+      nextArrow.textContent = ">";
+      gallery.parentElement.insertBefore(prevArrow, gallery);
+      gallery.parentElement.insertBefore(nextArrow, gallery.nextSibling);
+
+      let currentImage = 0;
+      const totalImages = images.length;
+      const bulletsContainer = document.querySelector(".image-bullets");
+
+      function showImage(index) {
+        if (index < 0 || index >= totalImages) return;
+        images[currentImage].style.display = "none";
+        images[index].style.display = "block";
+        bulletsContainer.children[currentImage].classList.remove("active");
+        bulletsContainer.children[index].classList.add("active");
+        currentImage = index;
+      }
+
+      prevArrow.addEventListener("click", function() {
+        showImage(currentImage - 1);
+      });
+
+      nextArrow.addEventListener("click", function() {
+        showImage(currentImage + 1);
+      });
+
+      for (let i = 0; i < totalImages; i++) {
+        const bullet = document.createElement("span");
+        bullet.classList.add("bullet");
+        if (i === currentImage) bullet.classList.add("active");
+        bulletsContainer.appendChild(bullet);
+        bullet.addEventListener("click", function() {
+          showImage(i);
+        });
+      }
+    });
+  </script>
 </head>
 <body>
   <header>
@@ -203,12 +278,10 @@
     <h2>Explorar la Cultura</h2>
     <h2>Museo Comunitario Shan-Dany de Santa Ana Del Valle</h2>
     <p>Es una experiencia única para explorar la cultura local de la región. Ofrecemos una variedad de exposiciones y eventos educativos para ayudar a todos los visitantes a comprender y disfrutar la cultura del lugar. Ven y descubre la rica historia y tradiciones de la región de Santa Ana Del Valle.</p>
-    <div class="gallery">
     <h3>Selecciona la lengua en que deseas escuchar el recorrido:</h3>
       <button class="button">Español</button>
       <button class="button">Inglés</button>
       <button class="button">Zapoteco</button>
-    </div>
   </section>
   
   <section class="section">
@@ -239,33 +312,27 @@
   <section class="section">
     <h2>Nuestra Ubicación</h2>
     <div class="map-container">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9331.186064867366!2d-96.6483121660624!3d16.8663053151221!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85c703b89c444bcb%3A0x7c2a2cda84cfc548!2sC.%20Pino%20Suarez%201%2C%20Tercera%20Secc%2C%2070400%20Santa%20Ana%20del%20Valle%2C%20Oax.!5e0!3m2!1sen!2smx!4v1626215139581!5m2!1sen!2smx" frameborder="0" allowfullscreen></iframe>
-      <div class="map-text">¡Visítanos en Santa Ana Del Valle, México!</div>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9331.186064867366!2d-96.6483121660624!3d16.8663053151221!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85c70454fbfd86ef%3A0x2ac864c9da6cc7f4!2sSanta%20Ana%20del%20Valle%2C%20Oaxaca!5e0!3m2!1sen!2smx!4v1627480123382!5m2!1sen!2smx" allowfullscreen></iframe>
+      <div class="map-text">Ven y visítanos en Santa Ana Del Valle, Oaxaca</div>
     </div>
   </section>
   
   <section class="section">
-    <h2>Formulario de Contacto</h2>
+    <h2>Contáctanos</h2>
     <div class="contact-form">
-      <p>Comunícate con nosotros a través del formulario de contacto de Museo Comunitario Incluyente Shan-Dany Santa Ana Del Valle para cualquier pregunta o solicitud de información.</p>
-      <input type="text" id="name" name="name" placeholder="Nombre">
-      <input type="email" id="email" name="email" placeholder="Correo">
-      <textarea id="message" name="message" placeholder="Mensaje"></textarea>
-      <button class="button" type="submit">Enviar</button>
+      <input type="text" placeholder="Nombre" required>
+      <input type="email" placeholder="Correo Electrónico" required>
+      <textarea placeholder="Mensaje" required></textarea>
+      <button type="submit">Enviar</button>
     </div>
-  </section>
-  
-  <section class="section">
-    <h2>Museo Shan-Dany</h2>
-    <p>Nuestro Museo es un lugar para contar historias, compartir conocimientos y aprender sobre nuestra cultura. El museo cuenta con una variedad de exposiciones que incluyen arte, música, literatura, ciencia y más. Además de las exhibiciones permanentes, también ofrecemos eventos especiales y programas educativos para todas las edades. ¡Ven a visitarnos y descubre la belleza y diversidad de la cultura de Santa Ana Del Valle!</p>
-    <a class="button" href="https://drive.google.com/file/d/1u1AV-lCQnCi9WgHD4J84g3NKpYD6SNNA/view?usp=sharing">VISITA NUESTRO RECORRIDO VIRTUAL</a>
   </section>
   
   <footer>
-    <p>&copy; 2023 Museo Comunitario Shan-Dany Santa Ana Del Valle | Todos los derechos reservados</p>
+    <p>Museo Comunitario Shan-Dany Santa Ana Del Valle &copy; 2023</p>
   </footer>
 </body>
 </html>
+
 
 
 
