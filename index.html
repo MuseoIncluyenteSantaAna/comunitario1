@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Museo Comunitario Shan-Dany Santa Ana Del Valle</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <style>
     body {
       margin: 0;
@@ -104,67 +105,48 @@
       box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
     }
     
-    .map-container {
-      position: relative;
-      margin-bottom: 30px;
+    .map-section {
+      background-color: #222222;
+      padding: 0;
+      margin: 20px 0;
+      text-align: center;
+    }
+    .map-section h2 {
+      font-size: 60px;
+      margin-bottom: 20px;
+    }
+    .map-section iframe {
+      width: 90%;
+      height: 450px;
+      border: 0;
     }
     
-    .map-container iframe {
+    .contact-section {
+      background-color: #222222;
+      padding: 40px;
+      margin: 20px;
+    }
+    .contact-section input,
+    .contact-section textarea {
       width: 100%;
-      height: 400px;
+      padding: 10px;
+      margin-bottom: 20px;
+      background-color: #333333;
       border: none;
-      border-radius: 10px;
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-    }
-    
-    .map-container .map-text {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      background-color: rgba(0, 0, 0, 0.6);
-      padding: 10px;
-      font-size: 18px;
       color: white;
-      border-radius: 10px;
     }
-    
-    .contact-form {
-      display: flex;
-      flex-direction: column;
-      margin-bottom: 30px;
-    }
-    
-    .contact-form input,
-    .contact-form textarea {
-      margin-bottom: 10px;
-      padding: 10px;
-      font-size: 18px;
-      border-radius: 5px;
-      border: 1px solid #dddddd;
-      width: 100%;
-      box-sizing: border-box;
-    }
-    
-    .contact-form textarea {
-      resize: vertical;
+    .contact-section textarea {
       height: 150px;
     }
-    
-    .contact-form button {
-      background-color: #555555;
-      color: white;
-      padding: 10px 20px;
+    .contact-section button {
+      background-color: #2ecc71;
+      color: black;
+      padding: 12px 24px;
       font-size: 18px;
+      text-decoration: none;
+      border-radius: 25px;
       border: none;
-      border-radius: 20px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      width: 150px;
-      align-self: flex-end;
-    }
-    
-    .contact-form button:hover {
-      background-color: #777777;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
     }
     
     .image-bullets {
@@ -213,25 +195,48 @@
   </div>
   </section>
   
-  <section class="section">
-    <h2>Galería de Esculturas</h2>
-    <div class="gallery">
-      <img src="IMG_4505.jpg" alt="Escultura 1">
-      <img src="IMG_4474.jpg" alt="Escultura 2">
-      <img src="IMG_4486.jpg" alt="Escultura 3">
-      <img src="IMG_4491.jpg" alt="Escultura 4">
-      <img src="IMG_4526.jpg" alt="Escultura 5">
-      <img src="IMG_4496.jpg" alt="Escultura 6">
+<div id="myCarousel" class="carousel slide section" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+      <li data-target="#myCarousel" data-slide-to="3"></li>
+      <li data-target="#myCarousel" data-slide-to="4"></li>
+      <li data-target="#myCarousel" data-slide-to="5"></li>
+    </ol>
+
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <img src="1.jpg" alt="Image 1" class="carousel-image">
+      </div>
+      <div class="item">
+        <img src="DJI_0001.JPG" alt="Image 2" class="carousel-image">
+      </div>
+      <div class="item">
+        <img src="DSC03971.JPG" alt="Image 3" class="carousel-image">
+      </div>
+      <div class="item">
+        <img src="DSC04025.JPG" alt="Image 4" class="carousel-image">
+      </div>
+      <div class="item">
+        <img src="11.jpg" alt="Image 5" class="carousel-image">
+      </div>
+      <div class="item">
+        <img src="38.jpg" alt="Image 6" class="carousel-image">
+      </div>
     </div>
-    <div class="image-bullets">
-      <span class="bullet active"></span>
-      <span class="bullet"></span>
-      <span class="bullet"></span>
-      <span class="bullet"></span>
-      <span class="bullet"></span>
-      <span class="bullet"></span>
-    </div>
-  </section>
+
+    <!-- Controls -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
   
   <section class="section">
     <h2>¿Tienes dudas sobre alguna pieza?</h2>
@@ -256,18 +261,18 @@
     </div>
   </section>
   
-  <section class="section">
-    <h2>Formulario de Contacto</h2>
- <div class="contact-form">
-  <p>Comunícate con nosotros a través del formulario de contacto de Museo Comunitario Incluyente Shan-Dany Santa Ana Del Valle para cualquier pregunta o solicitud de información.</p>
-  <form action="enviar_formulario.php" method="POST">
-    <input type="text" id="name" name="name" placeholder="Nombre">
-    <input type="email" id="email" name="email" placeholder="Correo">
-    <textarea id="message" name="message" placeholder="Mensaje"></textarea>
-    <button class="button" type="submit">Enviar</button>
-  </form>
-</div>
-  </section>
+  <div class="contact-section">
+    <h2 class="section-title" style="font-size: 24px;">Formulario de Contacto</h2>
+    <form>
+      <label for="name">Nombre:</label>
+      <input type="text" id="name" name="name" required><br><br>
+      <label for="email">Correo:</label>
+      <input type="email" id="email" name="email" required><br><br>
+      <label for="message">Mensaje:</label><br>
+      <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
+      <input type="submit" value="Enviar" class="button">
+    </form>
+  </div>
 
   </section>
   
@@ -301,6 +306,8 @@
       }
     }
   </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>
 
